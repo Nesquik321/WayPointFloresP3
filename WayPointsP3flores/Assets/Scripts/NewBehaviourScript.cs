@@ -18,7 +18,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         tracker = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         DestroyImmediate(tracker.GetComponent<Collider>());
-        tracker.GetComponent<Collider>().enabled = false;
+        tracker.GetComponent<MeshRenderer>().enabled = false;
         tracker.transform.position = this.transform.position;
         tracker.transform.rotation = this.transform.rotation;
     }
@@ -32,7 +32,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (currentWP >= waypoints.Length) currentWP = 0;
 
         tracker.transform.LookAt(waypoints[currentWP].transform);
-        tracker.transform.Translate(0, 0, (speed + 2) * Time.deltaTime);
+        tracker.transform.Translate(0, 0, (speed + 20) * Time.deltaTime);
     }
 
     // Update is called once per frame
